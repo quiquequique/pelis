@@ -2,17 +2,25 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavbarComponent } from './navbar/navbar.component';
 import { RouterModule } from '@angular/router';
+import { SlideshowComponent } from './slideshow/slideshow.component';
+import { PeliculasPosterGridComponent } from './peliculas-poster-grid/peliculas-poster-grid.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { RatingModule } from 'ng-starrating';
 
 
 
 @NgModule({
-  declarations: [NavbarComponent],
+  declarations: [NavbarComponent, SlideshowComponent, PeliculasPosterGridComponent],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    BrowserModule,
+    RatingModule
   ],
   exports: [
-    NavbarComponent
+    NavbarComponent,
+    SlideshowComponent,
+    PeliculasPosterGridComponent
   ]
 })
 export class ComponentsModule { }

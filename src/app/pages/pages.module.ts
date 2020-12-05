@@ -3,13 +3,15 @@ import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home/home.component';
 import { PeliculaComponent } from './pelicula/pelicula.component';
 import { BusquedaComponent } from './busqueda/busqueda.component';
+import { ComponentsModule } from '../components/components.module';
 
 
 
 @NgModule({
   declarations: [HomeComponent, PeliculaComponent, BusquedaComponent],
   imports: [
-    CommonModule
+    CommonModule,
+    ComponentsModule
   ]
 })
 export class PagesModule { }
