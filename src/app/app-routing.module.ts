@@ -10,7 +10,7 @@ const routes: Routes = [
 
   { path: 'home', component: HomeComponent },
   { path: 'pelicula/:id', component: PeliculaComponent},
-  { path: 'buscar', component: BusquedaComponent },
+  { path: 'buscar/:texto', component: BusquedaComponent },
   { path: '**', redirectTo: '/home' },
 
 ];

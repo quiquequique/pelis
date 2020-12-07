@@ -5,3 +5,5 @@
 - angular router
 - Swiper slider
 - ng-starring
+- reutilización de componentes
+- quicktype.io

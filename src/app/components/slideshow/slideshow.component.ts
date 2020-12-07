@@ -9,7 +9,7 @@ import Swiper from 'swiper';
 })
 export class SlideshowComponent implements OnInit, AfterViewInit {
 
-  @Input() movies: Movie[];
+  @Input() moviesSlideshow: Movie[];
 
   public mySwiper: Swiper;
 
@@ -17,7 +17,7 @@ export class SlideshowComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
 
-    // console.log( 'slideshowComponent: ', this.movies );
+    // console.log( 'slideshowComponent: ', this.moviesSlideshow );
 
   }
 

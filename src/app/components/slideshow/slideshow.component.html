@@ -3,7 +3,7 @@
     <!-- Additional required wrapper -->
     <div class="swiper-wrapper">
         <!-- Slides -->
-        <div *ngFor="let movie of movies" class="swiper-slide" [ngStyle]="{'background-size': 'cover', 'background-image': 'url(https://image.tmdb.org/t/p/w500'+ movie.backdrop_path +')'}">
+        <div *ngFor="let movie of moviesSlideshow" class="swiper-slide" [ngStyle]="{'background-size': 'cover', 'background-image': 'url(https://image.tmdb.org/t/p/w500'+ movie.backdrop_path +')'}">
             <div class="movie-description">
                 <h3>{{ movie.title }}</h3>
                 <p>

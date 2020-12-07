@@ -1,1 +1,25 @@
-<p>busqueda works!</p>
+<div class="row">
+    <div class="col-8">
+        <h1>
+            Busqueda de películas
+        </h1>
+    </div>
+    <div class="col-4 mt-3">
+        <h3 class="lead text-right"> Buscando: <small class="text-warning">{{ busqueda }}</small></h3>
+    </div>
+</div>
+
+<hr>
+
+<div class="row" *ngIf='movies.length === 0'>
+    <div class="col">
+        <h2>No se a encontrado ninguna pelicula con ese nombre</h2>
+        <h3>Intentelo de nuevo !!</h3>
+    </div>
+</div>
+
+<div class="row mt-5">
+    <div class="col">
+        <app-peliculas-poster-grid [movies]='movies' *ngIf='movies.length > 0'></app-peliculas-poster-grid>
+    </div>
+</div>
