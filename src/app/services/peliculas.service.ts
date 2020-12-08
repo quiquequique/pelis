@@ -1,9 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { tap, map } from 'rxjs/operators';
+import { Observable, of } from 'rxjs';
+import { tap, map, catchError } from 'rxjs/operators';
 import { CarteleraResponce, Movie } from '../interfaces/cartelera-response';
 import { MovieResponse } from '../interfaces/movie-response';
+import { CreditsResponse, Cast } from '../interfaces/credits-response';
 
 @Injectable({
   providedIn: 'root'
@@ -69,10 +70,24 @@ export class PeliculasService {
     this.carteleraPage = 1;
   }
 
-  getDetallePelicula( id: string ): any {
+  getDetallePelicula( id: string ) {
 
-    return this.http.get<MovieResponse>(`${ this.baseUrl }/movie/${ id }`, { params: this.params });
+    return this.http.get<MovieResponse>(`${ this.baseUrl }/movie/${ id }`, { params: this.params }).pipe(
+      catchError( err => of( null ) )
+    );
 
   }
 
+  // https://api.themoviedb.org/3/movie/650747/credits?api_key=4653ad8ed2946de5c1534d83b792bc5f&language=es-ES
+
+  getCast( id: string ): Observable<Cast[]> {
+
+    return this.http.get<CreditsResponse>(`${ this.baseUrl }/movie/${ id }/credits`, { params: this.params }).pipe(
+
+      map( res => res.cast ),
+      catchError( err => of( [] ) )
+
+    );
+
+  }
 }
